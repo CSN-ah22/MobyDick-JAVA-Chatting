@@ -5,13 +5,13 @@
 그리고 완전히 제 자신의 것으로 만들기 위해 부족한 부분이 어디인지</br>
 고민해 보면서 완성시키는 것이 목표입니다!</br>
 
-#1주차
+# 1주차
 
 ## 완성본
 
 - 시작전에 오늘 완성할 화면을 보여드리겠습니다
+<img src="https://user-images.githubusercontent.com/70833455/126898341-527443d1-33ff-44c9-b701-bb3fb8e3f761.png" width="300px" height="300px">
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/91971375-f49c-4810-8846-5bed03d14dfa/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/91971375-f49c-4810-8846-5bed03d14dfa/Untitled.png)
 
 ## JAVA의 GUI 클래스 : Swing
 
@@ -24,12 +24,12 @@
 **GUI를 구현하기 위한 도구 Swing**
 
 - Java Swing은 운영체제에 영향을 받지 않고 플랫폼이 독립적이며 가벼운 구성 요소를 제공
+<img src="https://user-images.githubusercontent.com/70833455/126898562-2c5fddf8-ff14-41c0-b094-9754174285e3.png" width="350px" height="250px">
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40047eb8-984e-4974-80c4-31d08acdaf1f/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/40047eb8-984e-4974-80c4-31d08acdaf1f/Untitled.png)
 
 클래스 : 변수와 메서드를 정의해놓은 틀 
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06881efa-66ad-4afe-8200-39500f2bfd85/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/06881efa-66ad-4afe-8200-39500f2bfd85/Untitled.png)
+<img src="https://user-images.githubusercontent.com/70833455/126898601-1edc1a81-e1f2-45be-96c0-33a9fefa9686.png" width="400px" height="200px">
 
 ✨**JFrame이란?**
 
