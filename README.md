@@ -32,11 +32,11 @@
 
 - 숙제 결과 화면
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fb75b415-2591-48be-852a-6407771ec49a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fb75b415-2591-48be-852a-6407771ec49a/Untitled.png)
+    <img src="https://user-images.githubusercontent.com/70833455/127742009-d11efdcf-8ffd-46bb-b445-3f7ee065a22c.png" width="300px" height="300px">
 
 - 오늘의 완성본
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/344015cd-35af-4d1d-8356-976ab84694b3/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/344015cd-35af-4d1d-8356-976ab84694b3/Untitled.png)
+    <img src="https://user-images.githubusercontent.com/70833455/127742032-5d6677b8-6084-4180-aa51-743a16341bcd.png" width="300px" height="300px">
 
 ## 중복된 코드를 줄이기 위해 정리하기
 
@@ -44,7 +44,7 @@
 
 > 저번 시간에는 비밀번호 입력 칸을 JTextField를 이용하였습니다. 하지만 비밀번호를 입력할 시에는 아래 사진과 같이 입력하고 있는 글자가 안 보이게 하기 위해 JPasswordField를 사용합니다.
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4664678f-d14f-4f97-9cf9-640285e9823a/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4664678f-d14f-4f97-9cf9-640285e9823a/Untitled.png)
+<img src="https://user-images.githubusercontent.com/70833455/127742060-87d2e532-fbff-4cb2-9720-263afb1214a5.png" width="344px" height="44px">
 
 - 전역변수 선언
 
@@ -233,7 +233,7 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
 
 아래 그림과 같이 나머지 부분을 완성시켜주세요!
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/655fd0be-f2be-4538-ae17-bcb57f1f767d/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/655fd0be-f2be-4538-ae17-bcb57f1f767d/Untitled.png)
+<img src="https://user-images.githubusercontent.com/70833455/127742076-ef1d9369-7e43-47c0-8e5c-e3b8de123b8d.png" width="507px" height="265px">
 
 🍀 **아이디 라벨** 위치/크기 : x :120  y :150  / w:60  h:30
 
