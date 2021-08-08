@@ -4,6 +4,306 @@
 다른사람에게 어떻게 하면 쉽게 코드를 이해전달 시킬지</br>
 그리고 완전히 제 자신의 것으로 만들기 위해 부족한 부분이 어디인지</br>
 이번 멘토링을 통해 고민해 보면서 채팅프로그램을 완성시키는 것이 목표입니다!</br>
+# 3주차
+- 숙제 코드
+
+    ```jsx
+    				/*아이디*/
+            JLabel join_id = new JLabel("아이디:");
+            join_id.setBounds(120,150,60,30);
+            add(join_id);
+
+            id_field = new JTextField();
+            id_field.setBounds(180,150,200,30);
+            add(id_field);
+            /*아이디 END*/
+
+            /*비밀번호*/
+            JLabel join_pw = new JLabel("비밀번호:");
+            join_pw.setBounds(120,200,60,30);
+            add(join_pw);
+
+            pw_field = new JPasswordField();
+            pw_field.setBounds(180,200,200,30);
+            add(pw_field);
+            /*비밀번호 END*/
+
+            /*비밀번호 확인*/
+            JLabel check_pw = new JLabel("비밀번호 확인");
+            check_pw.setBounds(120,250,80,30);
+            add(check_pw);
+
+            check_pw_field = new JPasswordField();
+            check_pw_field.setBounds(200,250,180,30);
+            add(check_pw_field);
+            /*비밀번호 확인 END*/
+    ```
+
+- 숙제 완성본
+
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/547fc7c3-9f24-4029-ae32-6612596fc657/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/547fc7c3-9f24-4029-ae32-6612596fc657/Untitled.png)
+
+- 오늘의 완성본
+
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ac9d151c-c5e9-4614-9544-5d25057f5ad8/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ac9d151c-c5e9-4614-9544-5d25057f5ad8/Untitled.png)
+
+# `JoinPanel` 클래스 추가 구현
+
+- 비밀번호 입력칸의 값과 비밀번호 확인 입력칸의 값이 같은지 검사
+- 같다면 '비밀번호 확인이 되었습니다' 를 창에 띄웁니다
+- 다르다면 '비밀번호를 다시 확인해주세요' 를 창에 띄웁니다
+- 가입하기 버튼 수정
+
+    ```java
+    JButton bt_join = new JButton("가입하기");
+    bt_join.setBounds(120,350,260,30);
+    bt_join.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String myPass=String.valueOf(pw_field.getPassword()); //하단의 설명 참조
+            String myPass2=String.valueOf(check_pw_field.getPassword());
+
+            if (myPass.equals("")||myPass2.equals("")){
+                System.out.println("null값이 들어왔습니다");
+
+            }else if (myPass.equals(myPass2)){
+                System.out.println("비밀번호 확인이 되었습니다");
+            }
+            else{
+                System.out.println("비밀번호를 다시 확인해주세요");
+            }
+            /*System.out.println("회원가입을 요청했습니다");*/
+        }
+    });
+    add(bt_join);
+    ```
+
+    > valueOf 란?
+
+    **String 객체에서 제공해주는 기능으로 , 매개변수로 들어오는 것을 문자열로 바꿔줍니다**
+
+    > equals란 ?   **두 개의 문자열을 비교하는 기능**
+
+    `**비교대상문자열.equals(비교할 문자열)**`
+
+- 문구 만들기 - FAIL
+
+    ```java
+    /*비교 문구 FAIL*/
+    JLabel check_pw_FAIL = new JLabel("비밀번호를 다시 확인해주세요");
+    check_pw_FAIL.setBounds(200,290,200,30);
+    check_pw_FAIL.setForeground(new Color(102,0,153));
+    add(check_pw_FAIL);
+    check_pw_FAIL.setVisible(false);
+    /*비교 문구 END*/
+    ```
+
+    - 확인에 실패했을때만 문구가 나와야 하므로 `**seVisible**`을 사용합니다
+- 문구 만들기 - OK
+
+    ```java
+    /*비교 문구 OK*/
+    JLabel check_pw_OK = new JLabel("비밀번호 확인이 되었습니다");
+    check_pw_OK.setBounds(200,290,200,30);
+    check_pw_OK.setForeground(new Color(0,128,0));
+    add(check_pw_OK);
+    check_pw_OK.setVisible(false);
+    /*비교 문구 END*/
+    ```
+
+    - 입력후 성공했을때만 문구가 나와야 하므로 `**seVisible**`을 사용합니다
+- 조건문 수정 -1
+
+    ```java
+    public void actionPerformed(ActionEvent e) {
+        String myPass=String.valueOf(pw_field.getPassword());
+        String myPass2=String.valueOf(check_pw_field.getPassword());
+
+        if (myPass.equals("")||myPass2.equals("")){
+          
+            check_pw_FAIL.setVisible(true);
+
+        }else if (myPass.equals(myPass2)){
+           
+            check_pw_OK.setVisible(true);
+        }
+        else{
+      
+            check_pw_FAIL.setVisible(true);
+        }
+        /*System.out.println("회원가입을 요청했습니다");*/
+    }
+    ```
+
+    💥 문제가 있습니다! 
+
+    - 실패했을때 나오는 문구와 성공했을때 나오는 문구가 겹치는 경우가 생깁니다
+- 조건문 수정 -2
+
+    ```java
+    public void actionPerformed(ActionEvent e) {
+        String myPass=String.valueOf(pw_field.getPassword());
+        String myPass2=String.valueOf(check_pw_field.getPassword());
+        if (myPass.equals("")||myPass2.equals("")){
+            check_pw_OK.setVisible(false);
+            check_pw_FAIL.setVisible(true);//
+
+        }else if (myPass.equals(myPass2)){
+            check_pw_FAIL.setVisible(false);
+            check_pw_OK.setVisible(true);//
+        }
+        else{
+            check_pw_OK.setVisible(false);
+            check_pw_FAIL.setVisible(true);//
+        }
+        /*System.out.println("회원가입을 요청했습니다");*/
+    }
+    ```
+
+- 완성
+
+    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7926643f-fae3-4af1-9d51-00756940a578/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7926643f-fae3-4af1-9d51-00756940a578/Untitled.png)
+
+# `MainPanel` 클래스 생성
+
+- `JPanel` 상속 받기
+- 전역변수 선언
+
+    ```jsx
+    static JTextArea textArea;
+    ```
+
+    - `JTextArea` 란? 예시 🔽
+
+        [https://digiconfactory.tistory.com/entry/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-10-3-Java-Swing-JTextField-%EC%98%88%EC%A0%9C-%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0](https://digiconfactory.tistory.com/entry/%EC%9E%90%EB%B0%94-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-10-3-Java-Swing-JTextField-%EC%98%88%EC%A0%9C-%EA%B3%84%EC%82%B0%ED%95%98%EA%B8%B0)
+
+    - **여러 줄의 긴 문장을 입력할 수 있는 양식입니다.**
+- 기본 생성자 구현
+
+    ```jsx
+    public MainPanel() {
+            setView();
+
+            setBackground(Color.pink);
+            setSize(500, 500);
+            setLayout(null);
+        }
+    ```
+
+## private void setView() 메서드 생성
+
+- 채팅박스 만들기
+
+    ```jsx
+    textArea = new JTextArea();
+            JScrollPane scrollPane = new JScrollPane(textArea); //스크롤 기능
+            scrollPane.setBounds(3, 10, 480, 300);
+            add(scrollPane);
+    ```
+
+- 메시지를 보낼 입력칸 생성
+
+    ```jsx
+    JTextField text = new JTextField();
+            text.setBounds(120, 350, 190, 30);
+            add(text);
+    ```
+
+- 전송 버튼 생성
+
+    ```jsx
+    JButton submit = new JButton("전송");
+            submit.setBounds(320, 350, 60, 30);
+            submit.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (text.getText().equals("")) {
+                        return;
+                    } else {
+                         textArea.append(text.getText()+"\n");
+                         //text.setText(""); //이전에 입력했던 값을 지워줍니다
+                         System.out.println("전송됨");
+                    }
+
+                }
+            });
+            add(submit);
+    ```
+
+    - get은 '가져오다' '가지다' 라는 의미로써 text_field의 값을 가져온다는 뜻으로 연결됩니다
+
+---
+
+- 로그인 화면으로 이동 버튼 만들기
+
+    ```jsx
+    JButton bt_back = new JButton("로그인 화면으로 이동");
+            bt_back.setBounds(120, 400, 260, 30);
+            bt_back.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Main.movePage(1);
+                }
+            });
+            add(bt_back);
+    ```
+
+- 엔터를 쳤을경우 채팅박스에 전송되도록 만들기
+
+    ```jsx
+    			/*엔터키 액션*/
+            Action ok = new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    textArea.append(text.getText()+"\n"); //입력값 전송
+                    text.setText("");
+                    textArea.setCaretPosition(textArea.getDocument().getLength()); 
+    								//마지막에 있는 text 값의 길이를 반환
+    								//맨 아래로 스크롤합니다
+                    text.setText("");
+                }
+            };
+            KeyStroke enter = KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0, false);
+            text.getInputMap(JTable.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).put(enter, "ENTER");
+            text.getActionMap().put("ENTER", ok);
+            /*엔터키 액션 끝*/
+    ```
+
+## `MAIN` 클래스에 `MainPanel` 추가
+
+- 전역변수 선언
+    - `private static MainPanel mainPage;`
+
+- 객체 생성후 `JFrame` 안에 추가
+
+    ```java
+    mainPage = new MainPanel();
+        f.add(mainPage);
+    ```
+
+- `movePage` 메서드 안에 추가
+    - `mainPage.setVisible(false);`
+    - switch
+
+        ```java
+        case 3:
+        f.setTitle("Chat - 채팅 화면");
+        mainPage.setVisible(true);
+            break;
+        ```
+
+## `Login` 이벤트에 `MainPanel` 추가 - 화면 이동
+
+```java
+/*로그인 이벤트*/
+bt_login.addActionListener(new ActionListener() {
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Main.movePage(3);
+				/*System.out.println("로그인을 요청했습니다");*/
+    }
+});
+```
 # 2주차
 
 - 숙제 코드
