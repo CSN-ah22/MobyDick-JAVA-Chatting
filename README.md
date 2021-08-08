@@ -5,9 +5,13 @@
 그리고 완전히 제 자신의 것으로 만들기 위해 부족한 부분이 어디인지</br>
 이번 멘토링을 통해 고민해 보면서 채팅프로그램을 완성시키는 것이 목표입니다!</br>
 # 3주차
-- 숙제 코드
 
-    ```jsx
+<details>
+<summary>🌳- 숙제 코드</summary>
+<div markdown="1">       
+</br>
+	
+```java
     				/*아이디*/
             JLabel join_id = new JLabel("아이디:");
             join_id.setBounds(120,150,60,30);
@@ -37,11 +41,13 @@
             check_pw_field.setBounds(200,250,180,30);
             add(check_pw_field);
             /*비밀번호 확인 END*/
-    ```
+```
+</details>
 
-- 숙제 완성본
+<details>
+<summary>🌳- - 숙제 완성본</summary>
 <img src="https://user-images.githubusercontent.com/70833455/128632065-048e0fd5-7fd8-459e-9c2b-2dadb5be2a3e.png" width="300px" height="300px">
-
+</details>
 
 - 오늘의 완성본
 <img src="https://user-images.githubusercontent.com/70833455/128632074-a913af60-b28a-4eff-9bf9-4f27b8f30c77.png" width="300px" height="300px">
@@ -54,7 +60,13 @@
 - 다르다면 '비밀번호를 다시 확인해주세요' 를 창에 띄웁니다
 - 가입하기 버튼 수정
 
-    ```java
+<details>
+<summary>🌳- 코드</summary>
+<div markdown="1">       
+</br>
+	
+```java
+	
     JButton bt_join = new JButton("가입하기");
     bt_join.setBounds(120,350,260,30);
     bt_join.addActionListener(new ActionListener() {
@@ -76,15 +88,19 @@
         }
     });
     add(bt_join);
-    ```
+```
+	
+</details>
 
-    > valueOf 란?
++ valueOf 란?
 
-    **String 객체에서 제공해주는 기능으로 , 매개변수로 들어오는 것을 문자열로 바꿔줍니다**
+**String 객체에서 제공해주는 기능으로 , 매개변수로 들어오는 것을 문자열로 바꿔줍니다**
 
-    > equals란 ?   **두 개의 문자열을 비교하는 기능**
++ equals란 ?   **두 개의 문자열을 비교하는 기능**
 
-    `**비교대상문자열.equals(비교할 문자열)**`
+`**비교대상문자열.equals(비교할 문자열)**`
+	
+
 
 - 문구 만들기 - FAIL
 
