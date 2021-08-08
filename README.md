@@ -40,12 +40,12 @@
     ```
 
 - 숙제 완성본
+<img src="https://user-images.githubusercontent.com/70833455/128632065-048e0fd5-7fd8-459e-9c2b-2dadb5be2a3e.png" width="300px" height="300px">
 
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/547fc7c3-9f24-4029-ae32-6612596fc657/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/547fc7c3-9f24-4029-ae32-6612596fc657/Untitled.png)
 
 - 오늘의 완성본
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ac9d151c-c5e9-4614-9544-5d25057f5ad8/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ac9d151c-c5e9-4614-9544-5d25057f5ad8/Untitled.png)
+<img src="https://user-images.githubusercontent.com/70833455/128632074-a913af60-b28a-4eff-9bf9-4f27b8f30c77.png" width="300px" height="300px">
+    
 
 # `JoinPanel` 클래스 추가 구현
 
@@ -161,8 +161,7 @@
     ```
 
 - 완성
-
-    ![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7926643f-fae3-4af1-9d51-00756940a578/Untitled.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7926643f-fae3-4af1-9d51-00756940a578/Untitled.png)
+<img src="https://user-images.githubusercontent.com/70833455/128632155-5e3b56db-abb8-415e-ae24-432efe114552.png" width="300px" height="300px">
 
 # `MainPanel` 클래스 생성
 
