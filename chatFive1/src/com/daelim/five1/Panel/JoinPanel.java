@@ -57,6 +57,7 @@ public class JoinPanel extends JPanel {
         add(pw_field);
         /*비밀번호 END*/
 
+        /*비밀번호 확인*/
         JLabel check_pw = new JLabel("비밀번호 확인");
         check_pw.setBounds(120,250,80,30);
         add(check_pw);
@@ -64,6 +65,7 @@ public class JoinPanel extends JPanel {
         check_pw_field = new JPasswordField();
         check_pw_field.setBounds(200,250,180,30);
         add(check_pw_field);
+        /*비밀번호 확인 END*/
 
         JButton bt_join = new JButton("가입하기");
         bt_join.setBounds(120,350,260,30);
