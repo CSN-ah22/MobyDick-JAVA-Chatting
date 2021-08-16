@@ -67,18 +67,52 @@ public class JoinPanel extends JPanel {
         add(check_pw_field);
         /*비밀번호 확인 END*/
 
+        /*비교 문구 FAIL*/
+        JLabel check_pw_FAIL = new JLabel("비밀번호를 다시 확인해주세요");
+        check_pw_FAIL.setBounds(200,290,200,30);
+        check_pw_FAIL.setForeground(new Color(102,0,153));
+        add(check_pw_FAIL);
+        check_pw_FAIL.setVisible(false);
+        /*비교 문구 END*/
+
+        /*비교 문구 OK*/
+        JLabel check_pw_OK = new JLabel("등록되었습니다 로그인 창으로 돌아가주십시오");
+        check_pw_OK.setBounds(130, 330, 600, 30);
+        check_pw_OK.setForeground(new Color(0,128,0));
+        add(check_pw_OK);
+        check_pw_OK.setVisible(false);
+        /*비교 문구 END*/
+
+
         JButton bt_join = new JButton("가입하기");
         bt_join.setBounds(120,350,260,30);
         bt_join.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("회원가입을 요청했습니다");
+                String myPass=String.valueOf(pw_field.getPassword());
+                String myPass2=String.valueOf(check_pw_field.getPassword());
+                if (myPass.equals("")||myPass2.equals("")){
+                    check_pw_OK.setVisible(false);
+                    check_pw_FAIL.setVisible(true);//
+
+                }else if (myPass.equals(myPass2)){
+                    check_pw_FAIL.setVisible(false);
+                    check_pw_OK.setVisible(true);//
+                    bt_join.setVisible(false);//
+
+                }
+                else{
+                    check_pw_OK.setVisible(false);
+                    check_pw_FAIL.setVisible(true);//
+                }
+                /*System.out.println("회원가입을 요청했습니다");*/
             }
         });
         add(bt_join);
 
-        JButton bt_back = new JButton("<");
-        bt_back.setBounds(10,10,50,30);
+        /*로그인 화면으로 이동 버튼*/
+        JButton bt_back = new JButton("로그인 화면으로 이동");
+        bt_back.setBounds(120, 400, 260, 30);
         bt_back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -86,5 +120,6 @@ public class JoinPanel extends JPanel {
             }
         });
         add(bt_back);
+
     }
 }

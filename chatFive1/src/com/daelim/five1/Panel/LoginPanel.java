@@ -46,7 +46,8 @@ public class LoginPanel extends JPanel {
         bt_login.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("로그인을 요청했습니다");
+                Main.movePage(3);
+                /*System.out.println("로그인을 요청했습니다");*/
             }
         });
 
@@ -71,7 +72,8 @@ public class LoginPanel extends JPanel {
         bt_setting.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("환경설정을 요청했습니다");
+                Main.movePage(4);
+               /* System.out.println("환경설정을 요청했습니다");*/
             }
         });
 
