@@ -5,7 +5,7 @@
 그리고 완전히 제 자신의 것으로 만들기 위해 부족한 부분이 어디인지</br>
 이번 멘토링을 통해 고민해 보면서 채팅프로그램을 완성시키는 것이 목표입니다!</br>
 
-[1. 목 록](1.목-록)  
+ # 1. 목 록 
   [1-1. 1주차](#1주차) - Swing설명, LoginPanel만들기 </br>
   [1-2. 2주차](#2주차) - JoinPanel 클래스 만들기 </br>
   [1-3. 3주차](#3주차) - JoinPanel 클래스 추가 구현, MainPanel 클래스 생성 </br>
@@ -381,7 +381,7 @@
 
 ---
 
-[목록으로](1.목-록)
+[목록으로](#목-록)
 
 # 3주차
 
@@ -698,7 +698,7 @@ bt_login.addActionListener(new ActionListener() {
     }
 });
 ```
-[목록으로](목록)
+[목록으로](#목록)
 
 # 2주차
 
@@ -947,7 +947,7 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
 
 - JPasswordField 를 이용해주세요
 
-[목록으로](목록)
+[목록으로](#목록)
 
 # 1주차
 
@@ -1145,4 +1145,4 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
                 });
     ```
 
-[목록으로](목록)
+[목록으로](#목록)
