@@ -9,7 +9,379 @@
   [1-1. 1주차](#1주차) - Swing설명, LoginPanel만들기 </br>
   [1-2. 2주차](#2주차) - JoinPanel 클래스 만들기 </br>
   [1-3. 3주차](#3주차) - JoinPanel 클래스 추가 구현, MainPanel 클래스 생성 </br>
-  [1-4. 4주차](#4주차) - SettingPanel 만들기 </br>
+  [1-4. 4주차](#4주차) - SettingPanel 만들기, 파일I/O설명 </br>
+
+# 4주차
+
+- 오늘의 완성본
+<img src="https://user-images.githubusercontent.com/70833455/129560798-1d118151-7471-48a4-b930-05952d9f5899.png" width="300px" height="300px">
+
+## 환경설정 페이지 만들기
+
+- 🖐**URL(Uniform Resource Locator)**
+    - 인터넷 상의 자원에 대한 주소
+
+    <img src="https://user-images.githubusercontent.com/70833455/129560892-9e461511-b303-4938-b41b-1226b2f29f50.png" width="680px" height="100px">
+
+    http
+
+    - http는 프로토콜(규약) 으로 브라우저가 어떤 통신 규약(약속)을 사용해야 하는지를 나타내는데 보통 웹사이트들을 HTTP 프로토콜이나 HTTPS 프로토콜을 사용합니다.
+    - 경우에 따라 메일 전송을 위한 mailto: 또는 파일을 전송하기 위해 ftp: 와 같은 다른 프로토콜을 사용합니다.
+
+    도메인이름
+
+    - www.yundu.co.kr은 도메인이름으로 웹 서버의 주소를 가리키는데 직접 IP address를 사용하는 것도 가능하지만 일반적으로 도메인이름을 사용해서 웹 서버에 접속합니다.
+
+    port
+
+    - :80은 포트라고 하는데 웹 서버의 자원에 접근하기 위해 사용하는 "관문(gate)"역할을 합니다.
+    - 웹 서버의 자원의 접근하기 위해 표준 HTTP 포트(80) 또는 HTTPS를 사용한다면 포트(443) 포트번호는 보통 생략하고 다른 포트의 경우에는 필수적으로 작성해주어야합니다.
+- SettingPanel 클래스 만들기
+    1. Panel 패키지를 우클릭하고 New > Java Class 를 클릭합니다.
+    1. SettingPanel 이라고 입력하고 엔터를 누릅니다.
+    1. extends 키워드를 사용하여 JPanel을 상속 받습니다. 
+- SettingPanel 생성자 만들기
+
+    ```java
+    public SettingPanel(){
+            setView();
+
+            setBackground(Color.PINK);
+            setSize(500,500);
+            setLayout(null);
+        }
+    ```
+
+- setView 메소드 만들기
+    - 접근제어자: private, 반환 타입: 없음(void)
+    - 도메인 입력창 생성
+    - 포트 입력창 생성
+    - 저장, 취소 버튼 생성
+
+    ```java
+    private void setView() {
+            JLabel label_server = new JLabel("SERVER");
+            label_server.setBounds(120,100,60,30);
+            add(label_server);
+            server = new JTextField();
+            server.setBounds(180,100,200,30);
+            add(server);
+            JLabel label_port = new JLabel("PORT");
+            label_port.setBounds(120,150,60,30);
+            add(label_port);
+            port = new JTextField();
+            port.setBounds(180,150,200,30);
+            add(port);
+
+            JButton bt_save = new JButton("저장");
+            bt_save.setBounds(120,220,260,30);
+    				bt_save.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+    						
+    						}
+    				});
+    				add(bt_save);
+            JButton bt_back = new JButton("취소");
+            bt_back.setBounds(120,260,260,30);
+            bt_back.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Main.movePage(1);
+                }
+            });
+            add(bt_back);
+        }
+    ```
+
+- SettingData 만들기
+    - server와 port를 입력하여 저장버튼을 누르면 객체화해서 파일에 저장하도록 해야합니다.
+    서버와 포트 정보를 객체화하기 위해서 해당 정보를 담는 SettingData라는 클래스를 만들어봅시다!
+    1. com.daelim.five1에 우클릭하여 Data라는 새로운 패키지를 만듭니다.
+    2. Data 패키지를 우클릭하고 New > Java Class 를 클릭합니다.
+    3. SettingData 라고 입력하고 엔터를 누릅니다.
+    4. implements키워드를 사용하여 Serializable을 상속 받습니다. 
+
+    java.io.Serializable 인터페이스
+    - Serializable은 구현의 목적이 아닌 마킹의 기능이 있는 인터페이스입니다.
+    - 클래스가 [직렬화](https://techblog.woowahan.com/2550/)가 가능하도록 하는데 사용되므로 인스턴스의 저장이 필요한 클래스에 구현해 주어야 합니다.
+
+    ```java
+    public class SettingData implements Serializable {
+        private String server, port; // 서버와 포트 정보 선언
+
+    /* 기본 생성자 */
+        public SettingData() {
+            
+        }
+    /* 서버와 포트의 정보를 받아서 초기화하는 생성자 */
+        public SettingData(String ser, String po){
+            setServer(ser);
+    				setPort(po);
+        }
+    /* Getter, Setter */
+        public String getServer() {
+            return server;
+        }
+
+        public void setServer(String server) {
+            this.server = server;
+        }
+
+        public String getPort() {
+            return port;
+        }
+
+        public void setPort(String port) {
+            this.port = port;
+        }
+
+    }
+    ```
+
+    **Getter/Setter (단축키: alt+insert)
+    외부에서 꺼내서 쓰거나 외부에 있는 값을 입력할 수 있는 메소드**
+    정보를 가져오는 메소드를 Getter,
+    정보를 바꾸는 메소드를 Setter 라고 부른답니다.
+
+- 저장 버튼 이벤트 추가하기
+
+    ```java
+    bt_save.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+    								// 입력 받은 서버와 포트값 받아와서 출력하기
+                    System.out.println("SERVER : "+server.getText()+", PORT: "+port.getText());
+    								
+    								// 입력값이 없을 때 팝업창 띄우기
+                    if(server.getText().equals("")){
+                        JOptionPane.showMessageDialog(Main.f,"서버 정보가 입력되지 않았습니다.");
+                        return;  // 더이상 밑의 내용 진행X (저장X)
+                    }
+                    if(port.getText().equals("")){
+                        JOptionPane.showMessageDialog(Main.f,"포트 정보가 입력되지 않았습니다.");
+                        return;
+                    }
+                    [try](https://www.notion.so/4-665b0d8c701f4e2084af659add5455a7) {
+    										// 정상적으로 값이 들어오면 서버 정보와 포트 정보를 한번에 넣는 SettingData 객체 만들기(객체화) 
+                        SettingData data;
+                        data = new SettingData(server.getText(), port.getText());
+    										
+    										// 파일에 저장
+                        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("d://settingData.txt"));
+                        String [write_value](https://www.notion.so/4-665b0d8c701f4e2084af659add5455a7) = "ws://" + data.getServer() + ":" + data.getPort();
+    										out.writeObject(write_value);
+                        out.close();
+
+                        FileInputStream fis = new FileInputStream("d://settingData.txt");
+                        ObjectInputStream in = new ObjectInputStream(fis);
+                        in.readObject();
+                        in.close();
+                    }catch (Exception ex){
+                        ex.printStackTrace();  // 에러 메세지의 발생 근원지를 찾아서 단계별로 에러를 출력한다.
+                        JOptionPane.showMessageDialog(Main.f,"파일이 정상적으로 생성되지 않았습니다.");
+                        return;
+                    }
+                    Main.movePage(1);
+                }
+            });
+    ```
+
+    **try-catch문
+    try{
+        예외 발생 가능 코드
+    } catch(예외클래스 e) {
+        예외 처리
+    } finally {
+        항상 실행
+    }**
+
+    그럼, D드라이브에 만들어진 파일을 확인해 봅시다.
+
+- private void setView() 완성 한번에 보기
+
+    ```java
+    private void setView() {
+       
+         JLabel label_server = new JLabel("SERVER");
+            label_server.setBounds(120,100,60,30);
+            add(label_server);
+            server = new JTextField();
+            server.setBounds(180,100,200,30);
+            add(server);
+            JLabel label_port = new JLabel("PORT");
+            label_port.setBounds(120,150,60,30);
+            add(label_port);
+            port = new JTextField();
+            port.setBounds(180,150,200,30);
+            add(port);
+
+            JButton bt_save = new JButton("저장");
+            bt_save.setBounds(120,220,260,30);
+            bt_save.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("SERVER : "+server.getText()+", PORT: "+port.getText());
+
+                    if(server.getText().equals("")){
+                        JOptionPane.showMessageDialog(Main.f,"서버 정보가 입력되지 않았습니다.");
+                        return;
+                    }
+                    if(port.getText().equals("")){
+                        JOptionPane.showMessageDialog(Main.f,"포트 정보가 입력되지 않았습니다.");
+                        return;
+                    }
+                    try {
+                        SettingData data;
+                        data = new SettingData(server.getText(), port.getText());
+
+    										/*파일 쓰기 시작*/
+                        ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("d://settingData.txt"));
+                        String write_value = "ws://" + data.getServer() + ":" + data.getPort();
+    										out.writeObject(write_value);
+                        out.close();
+    										/*파일 쓰기 끝*/
+
+    										/*파일읽기_start*/
+                        FileInputStream fis = new FileInputStream("d://settingData.txt");
+                        ObjectInputStream in = new ObjectInputStream(fis);
+                        in.readObject();
+                        in.close();
+    										/*파일읽기_end*/
+
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                        JOptionPane.showMessageDialog(Main.f,"파일이 정상적으로 생성되지 않았습니다.");
+                        return;
+                    }
+                    Main.movePage(1);
+                }
+            });
+            add(bt_save);
+            JButton bt_back = new JButton("취소");
+            bt_back.setBounds(120,260,260,30);
+            bt_back.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    Main.movePage(1);
+                }
+            });
+            add(bt_back);
+        }
+    ```
+
+[직렬화란 무엇일까](https://www.notion.so/7be7bbd32d25477caddd8875a768cd85)
+
+---
+
+## 마무리1 🖐 메인 페이지에 환경설정 페이지 넣기
+
+---
+
+- 1️⃣ 전역변수 선언하기
+
+    `private static SettingPanel settingPage;`
+
+- 2️⃣ 객체 생성
+
+    `settingPage = new SettingPanel();`
+
+- 3️⃣ `JFrame` 에 추가
+
+    `f.add(settingPage);`
+
+- 4️⃣ `movePage` 메서드에 추가
+
+    `settingPage.setVisible(false);`
+
+- 5️⃣ `switch` 문에 추가
+
+    ```jsx
+    case 4:
+    	f.setTitle("Chat - 환경설정 화면");
+    	settingPage.setVisible(true);
+    	break;
+    ```
+
+### Main 최종 완성 코드
+
+- 한번에 보기
+
+    ```jsx
+    public class Main {
+
+        public static JFrame f;
+        private static LoginPanel loginPage;
+        private static MainPanel mainPage;
+        private static JoinPanel joinPage;
+        private static SettingPanel settingPage;
+     
+    public static void main(String[] args) {
+            f = new JFrame();
+
+            loginPage = new LoginPanel();
+            f.add(loginPage);
+            mainPage = new MainPanel();
+            f.add(mainPage);
+            joinPage = new JoinPanel();
+            f.add(joinPage);
+            settingPage = new SettingPanel();
+            f.add(settingPage);
+
+            f.setSize(500, 500);
+            f.setLayout(null);
+            f.setVisible(true);
+
+            f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+            movePage(1);
+        }
+
+        public static void movePage(int index) {
+            loginPage.setVisible(false);
+            mainPage.setVisible(false);
+            joinPage.setVisible(false);
+            settingPage.setVisible(false);
+
+            switch (index) {
+                case 1:
+                    f.setTitle("Chat - 로그인 화면");
+                    loginPage.setVisible(true);
+                    break;
+                case 2:
+                    f.setTitle("Chat - 체팅 화면");
+                    mainPage.setVisible(true);
+                    break;
+                case 3:
+                    f.setTitle("Chat - 회원가입 화면");
+                    joinPage.setVisible(true);
+                    break;
+                case 4:
+                    f.setTitle("Chat - 환경설정 화면");
+                    settingPage.setVisible(true);
+                    break;
+            }
+    }
+    ```
+
+---
+
+## 마무리2 🖐
+
+✔ 실행해 봅시다!
+
+- **SERVER** 부분에 아래의 값을 입력 해주세요
+    - `echo.websocket.org`
+- **PORT** 부분에 아래의 값을 입력해주세요
+    - `443`
+
+✔ D드라이브에 파일을 열어서 아래의 값과 같은지 확인해보세요
+
+- `wss://echo.websocket.org:443`
+
+---
+
+마지막으로 3주차에 숙제 잊지 마세용 ‼️
 
 # 3주차
 
