@@ -10,6 +10,8 @@
   [1-2. 2주차](#2주차) - JoinPanel 클래스 만들기 </br>
   [1-3. 3주차](#3주차) - JoinPanel 클래스 추가 구현, MainPanel 클래스 생성 </br>
   [1-4. 4주차](#4주차) - SettingPanel 만들기, 파일I/O설명 </br>
+  </br>
+  추가 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
 
 # 4주차
 
