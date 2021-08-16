@@ -4,6 +4,13 @@
 다른사람에게 어떻게 하면 쉽게 코드를 이해전달 시킬지</br>
 그리고 완전히 제 자신의 것으로 만들기 위해 부족한 부분이 어디인지</br>
 이번 멘토링을 통해 고민해 보면서 채팅프로그램을 완성시키는 것이 목표입니다!</br>
+
+1. [목록](목록)  
+  1-1. [1주차](#1주차)  
+  1-2. [2주차](#2주차)  
+  1-3. [3주차](#3주차)  
+  1-4. [4주차](#4주차)  
+
 # 3주차
 
 <details>
@@ -523,7 +530,7 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
     						loginPage.setVisible(true);
                 break;
             case 2:
-    						f.setTitle("Chat - 회원가입 화면");
+    						f.setTitle("Chat - 회원가입 화면");  
     						joinPage.setVisible(true);
                 break;
         }
