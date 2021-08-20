@@ -11,7 +11,7 @@
   [1-3. 3주차](#3주차) - 회원가입 추가 구현, 채팅화면 완성 </br>
   [1-4. 4주차](#4주차) - 환경설정 화면 완성, 파일I/O설명 </br>
   </br>
-  추가 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
+  원본 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
 
 # 4주차 - 환경설정 화면 완성, 파일I/O설명
 
