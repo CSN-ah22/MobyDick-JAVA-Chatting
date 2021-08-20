@@ -13,7 +13,7 @@
   </br>
   추가 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
 
-# 4주차 - SettingPanel 만들기, 파일I/O설명
+# 4주차 - 환경설정 화면 완성, 파일I/O설명
 
 - 오늘의 완성본
 <img src="https://user-images.githubusercontent.com/70833455/129560798-1d118151-7471-48a4-b930-05952d9f5899.png" width="300px" height="300px">
