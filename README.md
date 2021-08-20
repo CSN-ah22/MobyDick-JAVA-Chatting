@@ -13,7 +13,7 @@
   </br>
   추가 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
 
-# 4주차
+# 4주차 - SettingPanel 만들기, 파일I/O설명
 
 - 오늘의 완성본
 <img src="https://user-images.githubusercontent.com/70833455/129560798-1d118151-7471-48a4-b930-05952d9f5899.png" width="300px" height="300px">
@@ -385,7 +385,7 @@
 
 [목록으로](#목-록)
 
-# 3주차
+# 3주차 - 회원가입 기능 추가 구현, 채팅창 만들기
 
 <details>
 <summary>🌳- 숙제 코드</summary>
@@ -702,7 +702,7 @@ bt_login.addActionListener(new ActionListener() {
 ```
 [목록으로](#목록)
 
-# 2주차
+# 2주차 - 회원가입 화면 만들기
 
 - 숙제 코드
 
@@ -951,7 +951,7 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
 
 [목록으로](#목록)
 
-# 1주차
+# 1주차 - 로그인 화면 완성
 
 ## 완성본
 
