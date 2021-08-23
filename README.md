@@ -14,7 +14,8 @@
   </br>
   원본 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
   
-# 5주차 - WebSocket통신기능완성,WebSocket설명  
+# 5주차 
+# WebSocket통신기능완성,WebSocket설명  
 
 - 오늘의 완성본
 <img src="https://user-images.githubusercontent.com/70833455/130435521-3e42e2bf-4457-4762-8f6d-306c1ed62f40.png" width="300px" height="300px">
@@ -142,6 +143,8 @@
 	
 </details>
 
+</details>
+	
 ## `settingPanel`을 통해 테스트 해봅시다!
 
 ---
@@ -176,7 +179,9 @@
 	
 [목록으로 가기](# 1. 목 록)	
 
-# 4주차 - 환경설정 화면 완성, 파일I/O설명
+	
+# 4주차 
+# 환경설정 화면 완성, 파일I/O설명
 
 - 오늘의 완성본
 <img src="https://user-images.githubusercontent.com/70833455/129560798-1d118151-7471-48a4-b930-05952d9f5899.png" width="300px" height="300px">
@@ -548,7 +553,8 @@
 
 [목록으로](# 1.-목-록)
 
-# 3주차 - 회원가입 기능 추가 구현, 채팅창 만들기
+# 3주차 
+# 회원가입 기능 추가 구현, 채팅창 만들기
 
 <details>
 <summary>🌳- 숙제 코드</summary>
@@ -865,7 +871,8 @@ bt_login.addActionListener(new ActionListener() {
 ```
 [목록으로](#목록)
 
-# 2주차 - 회원가입 화면 만들기
+# 2주차 
+# 회원가입 화면 만들기
 
 - 숙제 코드
 
@@ -987,7 +994,7 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
     ```
 
     - 1주차 시간에 배웠던 JFrame 메서드 참고!
-
+	
 - ✔ main 클래스에 JoinPanel 클래스 호출하기
     - 전역변수 joinPage 선언
 
@@ -1014,23 +1021,23 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
 - ✔ JoinPanel 클래스에 setView() 메소드 생성하기
 
     ```java
-    private void setView() {
-
-    JLabel label_name = new JLabel("이름");
+	private void setView() {
+	
+	JLabel label_name = new JLabel("이름");
         label_name.setBounds(120, 50, 60, 30);
         add(label_name);
         nameField = new JTextField();
         nameField.setBounds(180, 50, 200, 30);
         add(nameField);
-
-    JLabel label_email = new JLabel("이메일");
+	
+	JLabel label_email = new JLabel("이메일");
         label_email.setBounds(120, 100, 60, 30);
         add(label_email);
         emailField = new JTextField();
         emailField.setBounds(180, 100, 200, 30);
         add(emailField);
-
-    JButton bt_join = new JButton("가입하기");
+	
+	JButton bt_join = new JButton("가입하기");
         bt_join.setBounds(120, 350, 260, 30);
         bt_join.addActionListener(new ActionListener() {
     		@Override
@@ -1040,10 +1047,10 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
     		    });
         add(bt_join);
 
-    JButton bt_back = new JButton("<"); //로그인 화면으로 이동
+	JButton bt_back = new JButton("<"); //로그인 화면으로 이동
         bt_back.setBounds(10,10,50,30);
         add(bt_back);
-    }
+    	}
     ```
 
 ✔ 생성자에 setView() 메소드 호출
@@ -1114,7 +1121,8 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
 
 [목록으로](#목록)
 
-# 1주차 - 로그인 화면 완성
+# 1주차 
+# 로그인 화면 완성
 
 ## 완성본
 
