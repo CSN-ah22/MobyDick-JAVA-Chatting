@@ -10,8 +10,171 @@
   [1-2. 2주차](#2주차) - 회원가입 화면 완성 </br>
   [1-3. 3주차](#3주차) - 회원가입 추가 구현, 채팅화면 완성 </br>
   [1-4. 4주차](#4주차) - 환경설정 화면 완성, 파일I/O설명 </br>
+  [1-5. 5주차](#5주차) - WebSocket통신기능완성,WebSocket설명 </br>
   </br>
   원본 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
+  
+# 5주차 - WebSocket통신기능완성,WebSocket설명  
+
+- 오늘의 완성본
+<img src="https://user-images.githubusercontent.com/70833455/130435521-3e42e2bf-4457-4762-8f6d-306c1ed62f40.png" width="300px" height="300px">
+
+## 직렬화란? (4주차 보충)
+
+[간단한 설명](https://www.notion.so/7e0e5fcde44645e09264c260af636c08)
+
+---
+
+## `websoket` 이란?
+
+<details>
+<summary>INTRO</summary>
+- 웹 애플리케이션(브라우저)과 서버 간의 양방향 통신 기능을 제공합니다.<br>
+- 채팅에 사용되는 구체적 이유<br>
+
+    보통의 웹 서비스는 주고받고를 반복하지만 websoket은 한쪽이 여러번 보내고 받을 수 있다 - 채팅에 사용가능 <br>
+
+- WebSocketServer  , WebSocketClient 로 나뉩니다<br>
+- client 부분은 저희가 구현하고<br>
+- server 부분은 WebSocket테스트 페이지를 이용하겠습니다<br>
+</details>
+
+<details>
+<summary>라이브러리 추가</summary>
+🎵 ~다운을 받아요~ 🎵 ⬇️ <br>
+[lib.zip](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/cd4b5a53-df3c-4bc9-b700-3e830dad566b/lib.zip)
+	
+- File 메뉴탭을 선택해요
+- Project Structure 를 선택해요
+- Libraries 메뉴를 선택해요
+- 플라스 눌러요
+- JAVA를 선택해요
+- 다운받은 파일들을 불러와요~🎵	
+</details>
+
+<details>
+<summary>구현과정 <`Main.class`></summary>
+<details>
+<summary>1️⃣ 전역변수 선언</summary>
+	
+    - 선언
+        - 접근 제어자는 없습니다
+        - 모두 static을 사용하여 선언합니다
+        1. WebSocketClient 자료형으로 변수 ws 선언
+        2. String 타입으로 변수 user  선언 후 빈값 할당
+        3. String 타입으로 변수 s_s  선언
+</details>
+
+<details>
+<summary> 2️⃣ connect 메서드 생성 </summary>
+	
+    - 설정
+        1. 퍼블릭
+        2. 리턴 없음
+        3. static 사용
+        4. 매개변수 → String 타입 ID
+
+    1. try catch 문 생성후 `**WebSocketClient**` 객체를 생성합니다 (! 중괄호 끝에 세미콜론)
+    2. 생성된 객체 안에 new 키워드로 `**URI**` 객체를 겹쳐 불러옵니다
+</details>
+
+ —  setting 판넬에서 생성된 파일의 값을 / Main에서 받아 / URI 안에 넣어줄겁니다
+
+<details>
+<summary>3️⃣ setting 판넬로 이동합니다 </summary>
+	
+    1. 파일에서 원하는 문자열을 추출하도록 구현합니다
+        - 사전 설명
+
+            [`substring`, `indexOf` 설명](https://www.notion.so/substring-indexOf-093ac4f0a0b04187ae4430936364054a)
+
+        - 추출 과정
+            1. readObject() 는 반환형이 Object 입니다
+            2. toString을 사용하여 문자열 변수에 담아둡니다
+
+                 `String f_line = in.readObject().toString();`
+
+            3. indexOf("ws://") 을 사용하여 반환된 인덱스 값을 int형 변수에 담습니다 
+            4. subString() 메서드를 호출합니다
+            5. 섭스트링의 매개변수로 index 값을 넣어줍니다
+            6. 최종 코드
+
+            ```jsx
+            /*파일 읽기 start*/
+            FileInputStream fis = new FileInputStream("d://settingData.txt");
+            ObjectInputStream in = new ObjectInputStream(fis);
+
+            String f_line = in.readObject().toString();
+            int first = f_line.indexOf("ws://");
+            String e_line = f_line.substring(first);
+            Main.uri(e_line);
+            in.close();
+            /*파일 읽기 end*/
+            ```
+</details>
+	
+<details>
+<summary> 4️⃣ 추출된 문자열을 Main으로 보내도록 구현합니다 </summary>
+    - Main에 받는 역할을 하는 메서드를 만듭니다
+
+        public static void uri(String uri) { 
+
+        URI = uri;
+
+        }
+
+        - 받는 메서드가 있다면 받는 변수도 필요하겠죠?
+        - 전역 변수로 `private static String URI;` 를 선언합니다
+
+        ---
+
+    — `settingPanel` 에서 `**Main.uri()**` 를 소환합니다
+</details>
+	
+<details>
+<summary>5️⃣ Main.class로 이동합니다 </summary>
+
+     `URI` 객체 안에 `URI` 변수를 소환합니다
+
+    [WebSocetClient - Override](https://www.notion.so/WebSocetClient-Override-83c6ed19711c4da5be198dbd6c5c315f)
+
+    [sendMessage() 구현](https://www.notion.so/sendMessage-91cd6786bfd848f4a7ac37711f3f49e5)
+	
+</details>
+
+## `settingPanel`을 통해 테스트 해봅시다!
+
+---
+
+- **SERVER** 부분에 아래의 값을 입력 해주세요
+    - `demo.piesocket.com/v3/channel_1?api_key=oCdCMcMPQpbvNjUIzqtvF1d2X2okWpDQj4AwARJuAgtjhzKxVEjQU6IdCjwm&notify_self`
+    - port 번호 원래 넣어야 하는데 도메인에 이미 추가되어 버려서 포트 번호는 필요 없습니다
+    - settingPanel에 포트정보관련 코드를 지우겠습니다
+
+---
+
+— 해당 도메인을 얻을 수 있는 테스트 사이트 입니다
+
+[https://www.piesocket.com/websocket-tester#](https://www.piesocket.com/websocket-tester#)
+
+---
+
+- **로그인에 로직 추가**
+	
+세팅창을 거치지 않고 실행해봅시다 오류가 뜨지요?
+
+---
+
+세팅창에서는 파일을 불러와 Main에 전달하는 기능이 있지만
+
+로그인 창에는 없기 때문입니다
+
+---
+
+로그인 액션 버튼에 파일 읽는 부분을 추가해줍시다
+# 끝
+	
+[목록으로 가기](# 1. 목 록)	
 
 # 4주차 - 환경설정 화면 완성, 파일I/O설명
 
@@ -383,7 +546,7 @@
 
 ---
 
-[목록으로](#목-록)
+[목록으로](# 1.-목-록)
 
 # 3주차 - 회원가입 기능 추가 구현, 채팅창 만들기
 
