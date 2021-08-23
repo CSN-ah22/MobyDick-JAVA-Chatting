@@ -177,7 +177,7 @@
 로그인 액션 버튼에 파일 읽는 부분을 추가해줍시다
 # 끝
 	
-[목록으로 가기](# 1.)	
+
 
 	
 # 4주차 
@@ -868,7 +868,7 @@ bt_login.addActionListener(new ActionListener() {
     }
 });
 ```
-[목록으로](#목록)
+
 
 # 2주차 
 # 회원가입 화면 만들기
@@ -1118,7 +1118,7 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
 
 - JPasswordField 를 이용해주세요
 
-[목록으로](#목록)
+
 
 # 1주차 
 # 로그인 화면 완성
@@ -1317,4 +1317,4 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
                 });
     ```
 
-[목록으로](#목록)
+
