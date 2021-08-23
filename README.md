@@ -12,7 +12,7 @@
   [1-4. 4주차](#4주차) - 환경설정 화면 완성, 파일I/O설명 </br>
   [1-5. 5주차](#5주차) - WebSocket통신기능완성,WebSocket설명 </br>
   </br>
-  원본 - Notion - https://www.notion.so/c35f88a35c2a46cc861a20e28e36edfa
+  원본 - Notion - https://kindhearted-gray-33d.notion.site/c35f88a35c2a46cc861a20e28e36edfa
   
 # 5주차 
 # WebSocket통신기능완성,WebSocket설명  
@@ -22,7 +22,7 @@
 
 ## 직렬화란? (4주차 보충)
 
-[간단한 설명](https://www.notion.so/7e0e5fcde44645e09264c260af636c08)
+[간단한 설명](https://kindhearted-gray-33d.notion.site/299d4f2009444d28a0549a901a56ebb0)
 
 ---
 
@@ -87,7 +87,7 @@
     1. 파일에서 원하는 문자열을 추출하도록 구현합니다
         - 사전 설명
 
-            [`substring`, `indexOf` 설명](https://www.notion.so/substring-indexOf-093ac4f0a0b04187ae4430936364054a)
+            [`substring`, `indexOf` 설명](https://kindhearted-gray-33d.notion.site/substring-indexOf-c14269516adf407488fb3312ca6f752b)
 
         - 추출 과정
             1. readObject() 는 반환형이 Object 입니다
@@ -137,9 +137,9 @@
 
      `URI` 객체 안에 `URI` 변수를 소환합니다
 
-    [WebSocetClient - Override](https://www.notion.so/WebSocetClient-Override-83c6ed19711c4da5be198dbd6c5c315f)
+    [WebSocetClient - Override](https://kindhearted-gray-33d.notion.site/WebSocetClient-Override-015d95c59a374543aec5ac574493852f)
 
-    [sendMessage() 구현](https://www.notion.so/sendMessage-91cd6786bfd848f4a7ac37711f3f49e5)
+    [sendMessage() 구현](https://kindhearted-gray-33d.notion.site/sendMessage-e817f72ba5474565ba5bed4f951a1496)
 	
 </details>
 
@@ -440,7 +440,7 @@
         }
     ```
 
-[직렬화란 무엇일까](https://www.notion.so/7be7bbd32d25477caddd8875a768cd85)
+[직렬화란 무엇일까](https://kindhearted-gray-33d.notion.site/299d4f2009444d28a0549a901a56ebb0)
 
 ---
 
@@ -1209,7 +1209,7 @@ f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 을 하면 윈도우창 종료
         }
     ```
 
-    [JFrame](https://www.notion.so/319cfdfb7061416d94768da0ff7fe7dc)
+    [JFrame](https://kindhearted-gray-33d.notion.site/319cfdfb7061416d94768da0ff7fe7dc?v=b996d3909ca04bdc846782bf6f933730)
 
     ### 실습3
 
