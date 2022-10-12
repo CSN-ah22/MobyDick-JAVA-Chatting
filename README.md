@@ -12,7 +12,7 @@
   [1-4. 4주차](#4주차) - 환경설정 화면 완성, 파일I/O설명 </br>
   [1-5. 5주차](#5주차) - WebSocket통신기능완성,WebSocket설명 </br>
   </br>
-  원본 - Notion - https://kindhearted-gray-33d.notion.site/c35f88a35c2a46cc861a20e28e36edfa
+  Notion - https://kindhearted-gray-33d.notion.site/c35f88a35c2a46cc861a20e28e36edfa
   
 # 5주차 
 # WebSocket통신기능완성,WebSocket설명  
